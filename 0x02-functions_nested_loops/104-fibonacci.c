@@ -14,7 +14,7 @@ int main(void)
 	x = 0;
 	y = 1;
 
-	for (count = 1; count <= 90; count++)
+	for (count = 1; count <= 98; count++)
 	{
 		z = x + y;
 		x = y;
