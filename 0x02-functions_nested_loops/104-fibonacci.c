@@ -14,7 +14,7 @@ int main(void)
 	x = 0;
 	y = 1;
 
-	for (count = 1; count <= 98; count++)
+	for (count = 1; count <= 90; count++)
 	{
 		z = x + y;
 		x = y;
@@ -30,7 +30,7 @@ int main(void)
 	while (count <= 98)
 	{
 		carry = (a + b) / 1000;
-		c = (a + b) - carry * 1000;
+		c = ((a + b) - carry) * 1000;
 		z = (x + y) + carry;
 		x = y;
 		y = z;
