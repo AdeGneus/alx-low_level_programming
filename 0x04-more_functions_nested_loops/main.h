@@ -10,6 +10,7 @@
  * more_numbers - print 1 - 14 to stdout 10 times
  * print_line - print lines nth times
  * print_diagonal - print diagonal lines
+ * print_square - print squares according to size
  */
 int _putchar(char c);
 int _isupper(int c);
@@ -20,3 +21,4 @@ void print_most_numbers(void);
 void more_numbers(void);
 void print_line(int n);
 void print_diagonal(int n);
+void print_square(int size);
