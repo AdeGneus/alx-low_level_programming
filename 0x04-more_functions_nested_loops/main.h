@@ -8,6 +8,7 @@
  * print_numbers - print numbers from 0 - 9 to stdout
  * print_most_numbers - print 0-9 except 2 & 4
  * more_numbers - print 1 - 14 to stdout 10 times
+ * print_line - print lines nth times
  */
 int _putchar(char c);
 int _isupper(int c);
@@ -16,3 +17,4 @@ int mul(int a, int b);
 void print_numbers(void);
 void print_most_numbers(void);
 void more_numbers(void);
+void print_line(int n);
