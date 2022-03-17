@@ -9,6 +9,7 @@
  * print_most_numbers - print 0-9 except 2 & 4
  * more_numbers - print 1 - 14 to stdout 10 times
  * print_line - print lines nth times
+ * print_diagonal - print diagonal lines
  */
 int _putchar(char c);
 int _isupper(int c);
@@ -18,3 +19,4 @@ void print_numbers(void);
 void print_most_numbers(void);
 void more_numbers(void);
 void print_line(int n);
+void print_diagonal(int n);
