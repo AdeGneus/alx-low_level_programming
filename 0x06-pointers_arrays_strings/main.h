@@ -9,6 +9,7 @@
  * reverse_array - reverses an array
  * *string_toupper - change lowercase letters to uppercase
  * *cap_string - convert lowercase after a separator to uppercase
+ * *leet - encodes a string into 1337
  */
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
@@ -18,3 +19,4 @@ int _strcmp(char *s1, char *s2);
 void reverse_array(int *a, int n);
 char *string_toupper(char *);
 char *cap_string(char *);
+char *leet(char *);
