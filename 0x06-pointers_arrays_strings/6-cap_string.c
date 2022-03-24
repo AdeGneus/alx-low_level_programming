@@ -7,32 +7,39 @@
  */
 char *cap_string(char *str)
 {
-	int b;
+	int a, b;
 
 	b = 0;
 
+	if (str[b] >= 97 && str[b] <= 122)
+		str[b] -= 32;
+	b++;
+
 	while (str[b] != '\0')
 	{
-		switch (str[b])
+		for (a = 0; a < 13; a++)
 		{
-			case '\t':
-			case ' ':
-			case '\n':
-			case ',':
-			case ';':
-			case '.':
-			case '!':
-			case '?':
-			case '"':
-			case '(':
-			case ')':
-			case '{':
-			case '}':
-			if (str[b + 1] >= 97 && str[b + 1] <= 122)
-				str[b + 1] -= 32;
-			break;
-			default:
-			break;
+			switch (str[b])
+			{
+				case '\t':
+				case ' ':
+				case '\n':
+				case ',':
+				case ';':
+				case '.':
+				case '!':
+				case '?':
+				case '"':
+				case '(':
+				case ')':
+				case '{':
+				case '}':
+				if (str[b + 1] >= 97 && str[b + 1] <= 122)
+					str[b + 1] -= 32;
+				break;
+				default:
+				break;
+			}
 		}
 		b++;
 	}
