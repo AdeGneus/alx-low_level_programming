@@ -16,7 +16,7 @@ char *leet(char *str)
 	{
 		for (b = 0; b <= 9; b++)
 		{
-			if (str[a] == replaced[b]
+			if (str[a] == replaced[b])
 				str[a] = replaced[b + 10];
 		}
 	}
