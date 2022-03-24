@@ -7,16 +7,13 @@
  */
 char *cap_string(char *str)
 {
-	int a, b;
+	int b;
 
 	b = 0;
 
 	while (str[b] != '\0')
-		b++;
-
-	for (a = 0; a < b && str[a] != '\0'; a++)
 	{
-		switch (str[a])
+		switch (str[b])
 		{
 			case '\t':
 			case ' ':
@@ -31,12 +28,13 @@ char *cap_string(char *str)
 			case ')':
 			case '{':
 			case '}':
-			if (str[a + 1] >= 97 && str[a + 1] <= 122)
-				str[a + 1] -= 32;
+			if (str[b + 1] >= 97 && str[b + 1] <= 122)
+				str[b + 1] -= 32;
 			break;
 			default:
 			break;
 		}
+		b++;
 	}
 	return (str);
 }
