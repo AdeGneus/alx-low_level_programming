@@ -1,50 +1,50 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 
 /**
- * checknumber - verifies if string has only numbers
- * @s: string to check
- * Return: 1 if only numbers, 0 otherwise
- **/
-
-int checknumber(char *s)
+ * _isdigit - checks for a digit
+ * @n: number to be checked
+ * Return: 0 or 1
+ */
+int _isdigit(char n[])
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		if (s[i] >= 0 && s[i] <= 9)
+		if (isdigit(n[i]) == 0)
 			return (0);
 	}
 	return (1);
 }
 
 /**
- * main - adds positive numbers
- * @argc: number of arguments
- * @argv: arguments entered
- * Return: sum of numbers, 0 if no arg is passed, 1 if non-integer is passed
- **/
+ * main - add positive numbers
+ * @argc: args counter
+ * @argv: args vector
+ * Return: Always 0
+ */
 
 int main(int argc, char *argv[])
 {
-	int sum, i;
+	int c = 1, sum = 0;
 
-	sum = 0;
-	for (i = 1; i < argc; i++)
+	if (argc == 1)
+		printf("0\n");
+	else
 	{
-		if (checknumber(argv[i]) == 0)
+		for (; c < argc; c++)
 		{
-			printf("Error\n");
-			return (1);
+			if (_isdigit(argv[c]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
+			else
+				sum += atoi(argv[c]);
 		}
-		if (atoi(argv[i]) <= 0)
-		{
-			printf("Error\n");
-			return (1);
-		}
-		sum += atoi(argv[i]);
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum);
 	return (0);
 }
