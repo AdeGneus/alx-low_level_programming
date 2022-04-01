@@ -31,27 +31,20 @@ int main(int argc, char *argv[])
 	int sum, i;
 
 	sum = 0;
-	if (argc < 3)
-		printf("%d\n", 0);
-	else if (argc >= 3)
+	for (i = 1; i < argc; i++)
 	{
-		for (i = 1; i < argc; i++)
+		if (checknumber(argv[i]) == 0)
 		{
-			if (checknumber(argv[i]) == 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
-			if (atoi(argv[i]) <= 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
-			sum += atoi(argv[i]);
+			printf("Error\n");
+			return (1);
 		}
-		printf("%d\n", sum);
-		return (0);
+		if (atoi(argv[i]) <= 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += atoi(argv[i]);
 	}
-
+	printf("%d\n", sum);
 	return (0);
 }
