@@ -30,23 +30,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (dest == NULL)
 		return (NULL);
+
 	for (i = 0; s1[i] != '\0'; i++)
 		dest[i] = s1[i];
+
 	if (n >= size2)
 	{
 		for (i = 0; s2[i] != '\0'; i++)
-		{
-			dest[size1] = s2[i];
-			size1++;
-		}
+			dest[size1 + i] = s2[i];
 	}
 	else
 	{
 		for (i = 0; i < n; i++)
-		{
-			dest[size1] = s2[i];
-			size1++;
-		}
+			dest[size1 + 1] = s2[i];
 	}
+	dest[size1 + size2] = '\0';
 	return (dest);
 }
