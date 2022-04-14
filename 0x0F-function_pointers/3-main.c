@@ -1,41 +1,41 @@
-#include "3-calc.h"
-#include <stdlib.h>
 #include <stdio.h>
-
+#include <stdlib.h>
+#include "3-calc.h"
 /**
- * main - gets input to perform operation
- * @argc: argument count
- * @argv: argument array
- * Return: result of operation if successful or error code if fails
-*/
+ * main - entry point for function
+ * @argc: arg counter, number of args
+ * @argv: array of pointers to args
+ *
+ * Description: calculates basic arithmetic
+ *
+ * Return: 0 on success, 98 on failure
+ */
 int main(int argc, char *argv[])
 {
-	int num1, num2;
-	int (*func)(int, int);
-	char operator;
-
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-	operator = *argv[2];
+	char op;
+	int (*op_func)(int, int);
+	int result;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit(98);
+		return (98);
 	}
-	func = get_op_func(argv[2]);
-	if (!func)
-	{
+	op = *(argv[2]);
+	if ((op == '/' || op == '%') && !atoi(argv[3]))
+	{ /* divide by zero exception */
 		printf("Error\n");
-		exit(99);
-	}
-	if ((operator == '/' || operator == '%') && num2 == 0)
-	{
-		printf("Error\n");
-		exit(100);
+		return (100);
 	}
 
-	printf("%d\n", func(num1, num2));
-
+	/* actually do the operation now that we've error chcked */
+	op_func = get_op_func(&op);
+	if (op_func == NULL || argv[2][1] != '\0')
+	{ /* didn't find operator, or operator longer than 1 byte */
+		printf("Error\n");
+		return (99);
+	}
+	result = op_func(atoi(argv[1]), atoi(argv[3]));
+	printf("%d\n", result);
 	return (0);
 }
